@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 115002524}
   - component: {fileID: 115002523}
   - component: {fileID: 115002522}
+  - component: {fileID: 115002527}
+  - component: {fileID: 115002526}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -224,6 +226,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &115002526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115002521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df3609bd19c6ee49b749319f39b628d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obgForTextComponent: {fileID: 686034982}
+--- !u!114 &115002527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115002521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b6c8548e0f68c4b88a7656734df614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obgForTextComponent: {fileID: 933057273}
 --- !u!1 &216439319
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +471,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 686034986}
+      - m_Target: {fileID: 115002526}
         m_TargetAssemblyTypeName: PhotonLogin, Assembly-CSharp
         m_MethodName: DisConnect
         m_Mode: 1
@@ -577,7 +605,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 933057277}
+      - m_Target: {fileID: 115002527}
         m_TargetAssemblyTypeName: PlayFabLogin, Assembly-CSharp
         m_MethodName: ConnectPlayFab
         m_Mode: 1
@@ -913,7 +941,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 686034986}
+      - m_Target: {fileID: 115002526}
         m_TargetAssemblyTypeName: PhotonLogin, Assembly-CSharp
         m_MethodName: Connect
         m_Mode: 1
@@ -974,7 +1002,6 @@ GameObject:
   - component: {fileID: 686034983}
   - component: {fileID: 686034985}
   - component: {fileID: 686034984}
-  - component: {fileID: 686034986}
   m_Layer: 5
   m_Name: Photon status
   m_TagString: Untagged
@@ -1101,18 +1128,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686034982}
   m_CullTransparentMesh: 1
---- !u!114 &686034986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 686034982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9df3609bd19c6ee49b749319f39b628d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,6 +1252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b6c8548e0f68c4b88a7656734df614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obgForTextComponent: {fileID: 0}
 --- !u!4 &912140323
 Transform:
   m_ObjectHideFlags: 0
@@ -1264,6 +1280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df3609bd19c6ee49b749319f39b628d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obgForTextComponent: {fileID: 0}
 --- !u!1 &933057273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1292,6 @@ GameObject:
   - component: {fileID: 933057274}
   - component: {fileID: 933057276}
   - component: {fileID: 933057275}
-  - component: {fileID: 933057277}
   m_Layer: 5
   m_Name: Playfab status
   m_TagString: Untagged
@@ -1402,18 +1418,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933057273}
   m_CullTransparentMesh: 1
---- !u!114 &933057277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933057273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b6c8548e0f68c4b88a7656734df614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,7 +2087,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 933057277}
+      - m_Target: {fileID: 115002527}
         m_TargetAssemblyTypeName: PlayFabLogin, Assembly-CSharp
         m_MethodName: DisconnectPlayFab
         m_Mode: 1
