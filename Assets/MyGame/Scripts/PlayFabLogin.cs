@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayFabLogin : MonoBehaviour
 {
+    private string tempName;
     [SerializeField]
     GameObject obgForTextComponent;
 
@@ -31,7 +32,12 @@ public class PlayFabLogin : MonoBehaviour
         }
 
         var request = new LoginWithCustomIDRequest { CustomId = "GB//Lesson3", CreateAccount = true };
-        PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnLoginFailure);
+        if (!PlayFabClientAPI.IsClientLoggedIn())
+        {
+            PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnLoginFailure);
+            tempName = request.CustomId;
+        }
+        else Debug.LogError("u already loggened  with: " + tempName);
     }
 
     public void DisconnectPlayFab()
@@ -41,4 +47,43 @@ public class PlayFabLogin : MonoBehaviour
         obgForTextComponent.GetComponent<TMP_Text>().text = "fail to connect";
         obgForTextComponent.GetComponent<TMP_Text>().color = new Color32(147, 23, 27, 255);
     }
+    [SerializeField]
+    string _username;
+    [SerializeField]
+    string _pass;
+    public void SignIn()
+    {
+        if (!PlayFabClientAPI.IsClientLoggedIn())
+        {
+            PlayFabClientAPI.LoginWithPlayFab(
+                new LoginWithPlayFabRequest
+            {
+                Username = _username, 
+                Password = _pass,
+            }, result =>
+            {
+                Debug.Log($"Success: {_username}");
+                obgForTextComponent.GetComponent<TMP_Text>().text = "Connected";
+                obgForTextComponent.GetComponent<TMP_Text>().color = new Color32(8, 130, 0, 255);
+            }, error =>
+           {
+               Debug.LogError($"Fail: {error.ErrorMessage}");
+               obgForTextComponent.GetComponent<TMP_Text>().text = "fail to connect";
+               obgForTextComponent.GetComponent<TMP_Text>().color = new Color32(147, 23, 27, 255);
+           },
+           tempName = _username);
+        }
+        else Debug.LogError("u already loggened with: " + tempName);
+    }
+
+    private void OnGetAccountInfo(GetAccountInfoResult result)
+    { 
+
+    }
+    private void OnFailure(PlayFabError error)
+    {
+        var errorMessage = error.GenerateErrorReport();
+        Debug.LogError("something went wrong: " + errorMessage);
+    }
+
 }
