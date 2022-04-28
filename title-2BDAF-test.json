@@ -1,0 +1,180 @@
+{
+  "CatalogVersion": "test",
+  "Catalog": [
+    {
+      "ItemId": "low_hs",
+      "ItemClass": "Potions",
+      "CatalogVersion": "test",
+      "DisplayName": "lesser heal pottion",
+      "Description": "gain a little bit of hp",
+      "VirtualCurrencyPrices": {
+        "GD": 2
+      },
+      "RealCurrencyPrices": null,
+      "Tags": [
+        "potion",
+        "health"
+      ],
+      "CustomData": "{\"heal count\":\"20\"}",
+      "Consumable": {
+        "UsageCount": 1,
+        "UsagePeriod": 5,
+        "UsagePeriodGroup": "heal_potion"
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": false,
+      "IsTradable": true,
+      "ItemImageUrl": null,
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "mid_hs",
+      "ItemClass": "Potions",
+      "CatalogVersion": "test",
+      "DisplayName": "medium heal pottion",
+      "Description": "gain 50 hp",
+      "VirtualCurrencyPrices": {
+        "GD": 5
+      },
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "potion",
+        "health"
+      ],
+      "CustomData": "{\"heal count\":\"50\"}",
+      "Consumable": {
+        "UsageCount": 1,
+        "UsagePeriod": 5,
+        "UsagePeriodGroup": "heal_potion"
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": false,
+      "IsTradable": true,
+      "ItemImageUrl": null,
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "key",
+      "ItemClass": "Key",
+      "CatalogVersion": "test",
+      "DisplayName": "key",
+      "Description": "the key for a box",
+      "VirtualCurrencyPrices": {
+        "GD": 10
+      },
+      "RealCurrencyPrices": null,
+      "Tags": [
+        "Key",
+        "box"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": 1,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": false,
+      "IsTradable": false,
+      "ItemImageUrl": null,
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "bnd",
+      "ItemClass": null,
+      "CatalogVersion": "test",
+      "DisplayName": null,
+      "Description": null,
+      "VirtualCurrencyPrices": {},
+      "RealCurrencyPrices": null,
+      "Tags": [],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": null,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": {
+        "BundledItems": [
+          "key",
+          "low_hs"
+        ],
+        "BundledResultTables": [],
+        "BundledVirtualCurrencies": null
+      },
+      "CanBecomeCharacter": true,
+      "IsStackable": false,
+      "IsTradable": false,
+      "ItemImageUrl": null,
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "cnt1",
+      "ItemClass": "box",
+      "CatalogVersion": "test",
+      "DisplayName": "heal Box",
+      "Description": "box with potions",
+      "VirtualCurrencyPrices": {
+        "GD": 5
+      },
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "box"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": 1,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": {
+        "KeyItemId": "key",
+        "ItemContents": [],
+        "ResultTableContents": [
+          "newDT1"
+        ],
+        "VirtualCurrencyContents": null
+      },
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": false,
+      "IsTradable": false,
+      "ItemImageUrl": null,
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    }
+  ],
+  "DropTables": [
+    {
+      "TableId": "newDT1",
+      "Nodes": [
+        {
+          "ResultItemType": "ItemId",
+          "ResultItem": "low_hs",
+          "Weight": 6
+        },
+        {
+          "ResultItemType": "ItemId",
+          "ResultItem": "mid_hs",
+          "Weight": 1
+        }
+      ]
+    }
+  ]
+}
