@@ -2,6 +2,8 @@ using PlayFab;
 using PlayFab.ClientModels;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CatalogManager : MonoBehaviour
@@ -26,7 +28,7 @@ public class CatalogManager : MonoBehaviour
         GetCatalogFromPlayfab();
     }
     public void CloseCatalogWindow()
-    {      
+    {
         _catalogWindow.SetActive(false);
     }
 
@@ -35,25 +37,32 @@ public class CatalogManager : MonoBehaviour
         HandleCatalog(obg.Catalog);
         Debug.Log("catalog was loaded");
     }
-    private List<CatalogItem> playerBag;
-    string[] propertiesForItem = new string[2];
+    public List<CatalogItem> playerBag; // must be public
+    [SerializeField]
+    GameObject _prefabForItem;
+    //string[] propertiesForItem = new string[2];
     private void HandleCatalog(List<CatalogItem> catalog)
     {
         foreach (var catalogItem in catalog)
         {
-            playerBag.Add(catalogItem);
-            Debug.Log($"Catalog item \"{catalogItem.DisplayName}\" loaded");
+            if (_catalogWindowScrollContent.transform.childCount < catalog.Count)
+            {
+                playerBag.Add(catalogItem);
+                Instantiate(_prefabForItem, _catalogWindowScrollContent.transform.position, Quaternion.identity, _catalogWindowScrollContent.transform);
+                Debug.Log($"Catalog item \"{catalogItem.DisplayName}\" loaded");
+            }
         }
+
     }
 
     private void FixedUpdate()
     {
         if (playerBag != null && _catalogWindow.activeInHierarchy)
         {
-            foreach (var item in playerBag)
+            for (int i = 0; i < playerBag.Count; i++)
             {
-              //  Instantiate(item, _catalogWindowScrollContent.transform.position, Quaternion.identity, _catalogWindowScrollContent.transform);
-            }
+                _catalogWindowScrollContent.transform.GetChild(i).GetComponent<Text>().text = playerBag[i].DisplayName;
+            }          
         }
     }
 }
