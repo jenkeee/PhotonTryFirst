@@ -42,15 +42,22 @@ public class CatalogManager : MonoBehaviour
     GameObject _prefabForItem;
     //string[] propertiesForItem = new string[2];
     private void HandleCatalog(List<CatalogItem> catalog)
-    {
+    {/*
         foreach (var catalogItem in catalog)
         {
             if (_catalogWindowScrollContent.transform.childCount < catalog.Count)
             {
                 playerBag.Add(catalogItem);
-                Instantiate(_prefabForItem, _catalogWindowScrollContent.transform.position, Quaternion.identity, _catalogWindowScrollContent.transform);
-                Debug.Log($"Catalog item \"{catalogItem.DisplayName}\" loaded");
+                Instantiate(_prefabForItem, _catalogWindowScrollContent.transform.position + new Vector3(_prefabForItem.GetComponent<RectTransform>().sizeDelta.x/2 +10f, -_prefabForItem.GetComponent<RectTransform>().sizeDelta.y/2, 0), Quaternion.identity, _catalogWindowScrollContent.transform);                
             }
+            Debug.Log($"Catalog item \"{catalogItem.DisplayName}\" loaded");
+        }
+        */
+        for (int i=0; i < catalog.Count; i++) 
+        {
+            playerBag.Add(catalog[i]);
+            Instantiate(_prefabForItem, _catalogWindowScrollContent.transform.position + new Vector3(_prefabForItem.GetComponent<RectTransform>().sizeDelta.x / 2 + 10f, (-_prefabForItem.GetComponent<RectTransform>().sizeDelta.y / 2) +( -_prefabForItem.GetComponent<RectTransform>().sizeDelta.y * i), 0), Quaternion.identity, _catalogWindowScrollContent.transform);
+            Debug.Log($"Catalog item \"{catalog[i].DisplayName}\" loaded");
         }
 
     }
