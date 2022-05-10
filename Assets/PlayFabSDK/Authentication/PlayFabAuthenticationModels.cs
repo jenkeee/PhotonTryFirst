@@ -65,7 +65,7 @@ namespace PlayFab.AuthenticationModels
         /// </summary>
         public Dictionary<string,string> CustomTags;
         /// <summary>
-        /// The optional entity to perform this action on. Defaults to the currently logged in entity.
+        /// The entity to perform this action on.
         /// </summary>
         public EntityKey Entity;
     }
