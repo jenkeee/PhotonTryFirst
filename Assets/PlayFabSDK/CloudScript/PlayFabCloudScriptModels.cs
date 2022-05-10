@@ -400,7 +400,7 @@ namespace PlayFab.CloudScriptModels
         /// </summary>
         public Dictionary<string,string> CustomTags;
         /// <summary>
-        /// The optional entity to perform this action on. Defaults to the currently logged in entity.
+        /// The entity to perform this action on.
         /// </summary>
         public EntityKey Entity;
         /// <summary>
@@ -439,7 +439,7 @@ namespace PlayFab.CloudScriptModels
         /// </summary>
         public Dictionary<string,string> CustomTags;
         /// <summary>
-        /// The optional entity to perform this action on. Defaults to the currently logged in entity.
+        /// The entity to perform this action on.
         /// </summary>
         public EntityKey Entity;
         /// <summary>
@@ -600,10 +600,6 @@ namespace PlayFab.CloudScriptModels
         /// The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         /// </summary>
         public Dictionary<string,string> CustomTags;
-        /// <summary>
-        /// The Id of the parent Title
-        /// </summary>
-        public string TitleId;
     }
 
     [Serializable]
@@ -899,7 +895,7 @@ namespace PlayFab.CloudScriptModels
         /// </summary>
         public Dictionary<string,string> CustomTags;
         /// <summary>
-        /// The optional entity to perform this action on. Defaults to the currently logged in entity.
+        /// The entity to perform this action on.
         /// </summary>
         public EntityKey Entity;
         /// <summary>
@@ -977,6 +973,10 @@ namespace PlayFab.CloudScriptModels
     public class RegisterHttpFunctionRequest : PlayFabRequestCommon
     {
         /// <summary>
+        /// The Id of the Azure Resource
+        /// </summary>
+        public string AzureResourceId;
+        /// <summary>
         /// The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         /// </summary>
         public Dictionary<string,string> CustomTags;
@@ -1001,6 +1001,10 @@ namespace PlayFab.CloudScriptModels
     [Serializable]
     public class RegisterQueuedFunctionRequest : PlayFabRequestCommon
     {
+        /// <summary>
+        /// The Id of the Azure Resource
+        /// </summary>
+        public string AzureResourceId;
         /// <summary>
         /// A connection string for the storage account that hosts the queue for the Azure Function.
         /// </summary>
